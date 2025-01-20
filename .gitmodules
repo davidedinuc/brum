@@ -1,9 +1,6 @@
 [submodule "dust3r"]
 	path = dust3r
 	url = https://github.com/davidedinuc/dust3r
-[submodule "Depth-Anything-V2"]
-	path = Depth-Anything-V2
-	url = https://github.com/davidedinuc/Depth-Anything-V2
 [submodule "gaussian-splatting"]
 	path = gaussian-splatting
 	url = https://github.com/davidedinuc/gaussian-splatting

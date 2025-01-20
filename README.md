@@ -36,3 +36,16 @@ pip install -r ../dust3r/requirements.txt
 
 ```
 
+## Download data
+
+Coming soon!
+
+## Usage
+
+```bash
+#For real data setup ./scripts/run_pipeline_real.sh 
+#For synthetic data setup ./scripts/run_pipeline_synthetic.sh 
+cd scripts
+./run_pipeline_real.sh
+./run_pipeline_synthetic.sh
+```
