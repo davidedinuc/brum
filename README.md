@@ -37,10 +37,11 @@ pip install -r ../dust3r/requirements.txt
 ```
 
 ## Download data
+To download out BRUM-dataset, please follow the links below:
 
-[Real data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/real_bus.zip)
-[Synthetic data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/synt_bus.zip)
-[Blend Files](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/blend_files.zip)
+[Real data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/real_bus.zip)    
+[Synthetic data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/synt_bus.zip)    
+[Blend Files](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/blend_files.zip)    
 
 ## Usage
 
