@@ -52,15 +52,6 @@ def prepare_dust3r_data(args):
 
     return images_train_paths, images_test_paths
 
-def compute_da_v2(raw_img, model):
-    depth = model.infer_image(raw_img)
-
-    depth_scaled = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
-    depth_scaled = depth_scaled.astype(np.uint8)
-    colored_depth = cv2.applyColorMap(depth_scaled, cv2.COLORMAP_INFERNO)[:, :, ::-1]
-
-    return depth, Image.fromarray(colored_depth).resize((raw_img.shape[1]//2,raw_img.shape[0]//2)) 
-
 def compute_sam(pil_img, input_points, processor, model):
 
     inputs = processor(pil_img, return_tensors="pt").to(model.device)

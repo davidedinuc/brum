@@ -1,7 +1,5 @@
 import argparse
 import sys, os
-sys.path.append(f'{sys.path[0]}/Depth-Anything-V2/metric_depth/') #TODO sistema il path
-from depth_anything_v2.dpt import DepthAnythingV2
 from transformers import (
     AutoImageProcessor, Mask2FormerForUniversalSegmentation,
     SamModel, SamProcessor
@@ -15,7 +13,6 @@ from tqdm import tqdm
 import torch
 from pathlib import Path
 from utils.dust3r_utils import ( 
-     compute_da_v2, 
      compute_sam,
      opencv_to_pytorch3d
      )
@@ -26,18 +23,7 @@ def main(args):
     set_seed(args.seed)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f'setting device to {device}')
-    print('Loading depth anything v2 model...')
-    model_configs = {
-        'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]},
-        'vitb': {'encoder': 'vitb', 'features': 128, 'out_channels': [96, 192, 384, 768]},
-        'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]},
-        'vitg': {'encoder': 'vitg', 'features': 384, 'out_channels': [1536, 1536, 1536, 1536]}
-    }
-
-    model_da_v2 = DepthAnythingV2(**{**model_configs['vitl'], 'max_depth': 80})
-    model_da_v2.load_state_dict(torch.load(f'{sys.path[0]}/Depth-Anything-V2/checkpoint/depth_anything_v2_metric_vkitti_vitl.pth', map_location='cpu'))
-    model_da_v2 = model_da_v2.to(device).eval()
-
+   
     if args.segmentation:
         print('Loading sam model.... ')
         model_sam = SamModel.from_pretrained("facebook/sam-vit-huge").to(device)
@@ -67,8 +53,6 @@ def main(args):
                     image = Image.fromarray(np.array(arr*255.0, dtype=np.byte), "RGB")
 
                 data[key]['rgb'] = image
-
-                data[key]['da_depth'] = compute_da_v2(np.array(data[key]['rgb']), model_da_v2)[0]
                 
                 if args.segmentation:
                     torch.use_deterministic_algorithms(False)

@@ -38,7 +38,9 @@ pip install -r ../dust3r/requirements.txt
 
 ## Download data
 
-Coming soon!
+[Real data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/real_bus.zip)
+[Synthetic data](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/synt_bus.zip)
+[Blend Files](https://ailb-web.ing.unimore.it/publicfiles/drive/brum-dataset/blend_files.zip)
 
 ## Usage
 
@@ -49,3 +51,4 @@ cd scripts
 ./run_pipeline_real.sh
 ./run_pipeline_synthetic.sh
 ```
+
