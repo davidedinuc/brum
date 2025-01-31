@@ -15,7 +15,7 @@ conda create -n brum python=3.9
 conda activate brum
 ```
 
-1. Install PyTorch3D.
+2. Install PyTorch3D.
 ```bash
 conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install -c fvcore -c iopath -c conda-forge fvcore iopath
@@ -24,13 +24,13 @@ conda install pytorch3d -c pytorch3d
 pip install -r requirements.txt
 ```
 
-2. Install gs dependencies
+3. Install gs dependencies
 ```bash
 pip install gaussians-splatting/submodules/diff-gaussian-rasterization
 pip install gaussians-splatting/submodules/simple-knn
 ```
 
-3. Install dust3r dependencies.
+4. Install dust3r dependencies.
 ```bash
 pip install -r ./dust3r/requirements.txt
 ```
