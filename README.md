@@ -7,33 +7,32 @@
 
 ## Installation
 
+1. Clone repository and setup environment.
+The repository contains submodules, thus please check it out with:
+```bash
+git clone https://github.com/davidedinuc/brum.git --recursive
+conda create -n brum python=3.9
+conda activate brum
+```
+
 1. Install PyTorch3D.
 ```bash
-conda create -n pytorch3d python=3.9
-conda activate pytorch3d
 conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install -c fvcore -c iopath -c conda-forge fvcore iopath
 conda install -c bottler nvidiacub
 conda install pytorch3d -c pytorch3d
+pip install -r requirements.txt
 ```
 
 2. Install gs dependencies
 ```bash
-conda create -n dust3r python=3.11 cmake=3.14.0
-conda activate dust3r 
-conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia  # use the correct version of cuda for your system
-pip install -r requirements.txt
-# Optional: you can also install additional packages to:
-# - add support for HEIC images
-# - add pyrender, used to render depthmap in some datasets preprocessing
-# - add required packages for visloc.py
-pip install -r requirements_optional.txt
+pip install gaussians-splatting/submodules/diff-gaussian-rasterization
+pip install gaussians-splatting/submodules/simple-knn
 ```
 
 3. Install dust3r dependencies.
 ```bash
-pip install -r ../dust3r/requirements.txt
-
+pip install -r ./dust3r/requirements.txt
 ```
 
 ## Download data
